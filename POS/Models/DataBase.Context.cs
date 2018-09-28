@@ -35,5 +35,10 @@ namespace POS.Models
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_GET_USERS_ALL_Result>("SP_GET_USERS_ALL");
         }
+    
+        public virtual ObjectResult<SP_GET_USER_DELETED_Result> SP_GET_USER_DELETED()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_GET_USER_DELETED_Result>("SP_GET_USER_DELETED");
+        }
     }
 }

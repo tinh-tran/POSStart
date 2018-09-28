@@ -24,7 +24,7 @@ namespace POS.Models
         public string RoleIdCode { get; set; }
         public string Code { get; set; }
         public Nullable<int> OrderBy { get; set; }
-        public Nullable<bool> Actived { get; set; }
+        public bool Actived { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<User> Users { get; set; }

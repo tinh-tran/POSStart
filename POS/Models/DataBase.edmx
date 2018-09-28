@@ -67,6 +67,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="SP_GET_USER_DELETED" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="SP_GET_USERS_ALL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="POSTestingModelStoreContainer">
           <EntitySet Name="Employes" EntityType="Self.Employes" Schema="dbo" store:Type="Tables" />
@@ -164,8 +165,19 @@
             <End Role="Users" EntitySet="Users" />
           </AssociationSet>
           <FunctionImport Name="SP_GET_USERS_ALL" ReturnType="Collection(POSTestingModel.SP_GET_USERS_ALL_Result)" />
+          <FunctionImport Name="SP_GET_USER_DELETED" ReturnType="Collection(POSTestingModel.SP_GET_USER_DELETED_Result)" />
         </EntityContainer>
         <ComplexType Name="SP_GET_USERS_ALL_Result">
+          <Property Type="Int32" Name="UserId" Nullable="false" />
+          <Property Type="String" Name="UserName" Nullable="false" />
+          <Property Type="Int32" Name="RoleID" Nullable="true" />
+          <Property Type="String" Name="PassWord" Nullable="false" />
+          <Property Type="Boolean" Name="Active" Nullable="false" />
+          <Property Type="Boolean" Name="IsCustomer" Nullable="true" />
+          <Property Type="Int32" Name="EmployeeId" Nullable="true" />
+          <Property Type="String" Name="Avatar" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="SP_GET_USER_DELETED_Result">
           <Property Type="Int32" Name="UserId" Nullable="false" />
           <Property Type="String" Name="UserName" Nullable="false" />
           <Property Type="Int32" Name="RoleID" Nullable="true" />
@@ -225,6 +237,20 @@
           <FunctionImportMapping FunctionImportName="SP_GET_USERS_ALL" FunctionName="POSTestingModel.Store.SP_GET_USERS_ALL">
             <ResultMapping>
               <ComplexTypeMapping TypeName="POSTestingModel.SP_GET_USERS_ALL_Result">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="PassWord" ColumnName="PassWord" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="IsCustomer" ColumnName="IsCustomer" />
+                <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+                <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_GET_USER_DELETED" FunctionName="POSTestingModel.Store.SP_GET_USER_DELETED">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="POSTestingModel.SP_GET_USER_DELETED_Result">
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="UserName" ColumnName="UserName" />
                 <ScalarProperty Name="RoleID" ColumnName="RoleID" />

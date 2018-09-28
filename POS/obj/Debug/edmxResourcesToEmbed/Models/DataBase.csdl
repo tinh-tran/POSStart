@@ -79,8 +79,19 @@
       <End Role="Users" EntitySet="Users" />
     </AssociationSet>
     <FunctionImport Name="SP_GET_USERS_ALL" ReturnType="Collection(POSTestingModel.SP_GET_USERS_ALL_Result)" />
+    <FunctionImport Name="SP_GET_USER_DELETED" ReturnType="Collection(POSTestingModel.SP_GET_USER_DELETED_Result)" />
   </EntityContainer>
   <ComplexType Name="SP_GET_USERS_ALL_Result">
+    <Property Type="Int32" Name="UserId" Nullable="false" />
+    <Property Type="String" Name="UserName" Nullable="false" />
+    <Property Type="Int32" Name="RoleID" Nullable="true" />
+    <Property Type="String" Name="PassWord" Nullable="false" />
+    <Property Type="Boolean" Name="Active" Nullable="false" />
+    <Property Type="Boolean" Name="IsCustomer" Nullable="true" />
+    <Property Type="Int32" Name="EmployeeId" Nullable="true" />
+    <Property Type="String" Name="Avatar" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="SP_GET_USER_DELETED_Result">
     <Property Type="Int32" Name="UserId" Nullable="false" />
     <Property Type="String" Name="UserName" Nullable="false" />
     <Property Type="Int32" Name="RoleID" Nullable="true" />

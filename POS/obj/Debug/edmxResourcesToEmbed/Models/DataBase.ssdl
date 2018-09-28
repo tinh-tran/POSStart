@@ -62,6 +62,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Function Name="SP_GET_USER_DELETED" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="SP_GET_USERS_ALL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <EntityContainer Name="POSTestingModelStoreContainer">
     <EntitySet Name="Employes" EntityType="Self.Employes" Schema="dbo" store:Type="Tables" />
